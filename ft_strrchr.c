@@ -3,33 +3,33 @@
 #include <string.h>
 
 
-char *ft_strchr(const char *s, int c)
+char *ft_strrchr(const char *s, int c)
 {
     int i;
 
     i = 0;
-    // if (s[i] == '\0')
-    //     return (NULL);
     while (s[i] != '\0')
+        i++;
+    
+    while (i >= 0)
     {
         if (s[i] == (char)c)
         {
             return ((char *)(s + i));
         }
-        i++;
+        i--;
     }
     return (NULL);
-    return (0);
 }
 
 int main(void)
 {
-    char tweet[] = "This is my @mention";
-    char *mention_ft = ft_strchr(tweet, '@');
-    char *mention_ft_NULL = ft_strchr(tweet, '.');
+    char tweet[] = "@This @is @my @mention";
+    char *mention_ft = ft_strrchr(tweet, '@');
+    char *mention_ft_NULL = ft_strrchr(tweet, '.');
 
-    char *mention = strchr(tweet, '@');
-    char *mention_NULL = strchr(tweet, '.');
+    char *mention = strrchr(tweet, '@');
+    char *mention_NULL = strrchr(tweet, '.');
 
     printf("%s\n", mention_ft);
     if (mention_ft_NULL == NULL)
