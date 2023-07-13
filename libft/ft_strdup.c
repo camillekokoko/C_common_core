@@ -1,4 +1,7 @@
-#include "./libft.h"
+//#include "./libft.h"
+#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 
 char	*ft_strdup(const char *src)
 {
