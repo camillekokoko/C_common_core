@@ -15,6 +15,7 @@
 #include <string.h>
 #include <stdlib.h>
 
+<<<<<<< HEAD
 static char	*ft_word_dup(const char *s1, int start, int finish)
 {
 	char	*d1;
@@ -75,4 +76,9 @@ char **ft_split(char const *s, char c)
 int	main()
 {
 	  ft_split("      split       this for   me  !", ' ');
+=======
+char **ft_split(char const *s, char c)
+{
+
+>>>>>>> 6487368961cf42c9a4ebb08e2edaecd81639ad49
 }
