@@ -1,26 +1,35 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 14:21:18 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 11:02:54 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void		*ft_memchr(const void *s, int c, size_t n)
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-    unsigned char *str;
-    unsigned char character;
-    size_t i;
+	unsigned char	*str;
+	unsigned char	character;
+	size_t			i;
 
-    i = 0;
-    str = (unsigned char *)s;
-    character = (unsigned char)c;
-
-    while (i < n)
-    {
-        if (str[i] == character)
-            return (&str[i]);
-        i++;
-    }
-    return (NULL);
+	i = 0;
+	str = (unsigned char *)s;
+	character = (unsigned char)c;
+	while (i < n)
+	{
+		if (str[i] == character)
+			return (&str[i]);
+		i++;
+	}
+	return (NULL);
 }
-
+/*
 int main(void)
 {
     char str[] = "john.smith@microsoft.com";
@@ -32,3 +41,4 @@ int main(void)
 
     return (0);
 }
+*/

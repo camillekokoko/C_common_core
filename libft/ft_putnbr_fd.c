@@ -1,22 +1,36 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 10:37:49 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 13:32:15 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
-#include <unistd.h>
-
-
 void	ft_putnbr_fd(int n, int fd)
-
 {
+	int	a;
 
-	char	*s;
-
-
-	if (!fd)
-
-		return ;
-
-	s = ft_itoa(n);
-
-	write(fd, s, ft_strlen(s));
-
+	a = 0;
+	if (n == -2147483648)
+	{
+		n = -214748364;
+		a = 8;
+	}
+	if (n < 0)
+	{
+		n = n * -1;
+		ft_putchar_fd('-', fd);
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	n = n % 10;
+	ft_putchar_fd(n + 48, fd);
+	if (a == 8)
+		ft_putchar_fd('8', fd);
 }
-

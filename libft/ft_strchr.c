@@ -1,27 +1,35 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 10:45:41 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 13:59:38 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "libft.h"
 
-char *ft_strchr(const char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-    int i;
+	char	find;
+	int		i;
 
-    i = 0;
-    // if (s[i] == '\0')
-    //     return (NULL);
-    while (s[i] != '\0')
-    {
-        if (s[i] == (char)c)
-        {
-            return ((char *)(s + i));
-        }
-        i++;
-    }
-    return (NULL);
-    return (0);
+	find = (unsigned char)c;
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == find)
+			return ((char *)s + i);
+		i++;
+	}
+	if (s[i] == find)
+		return ((char *)s + i);
+	return (0);
 }
-
+/*
 int main(void)
 {
     char tweet[] = "This is my @mention";
@@ -39,4 +47,4 @@ int main(void)
     if (mention_NULL == NULL)
         printf("Not found\n");
     return (0);
-}
+}*/

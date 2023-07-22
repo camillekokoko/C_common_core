@@ -1,25 +1,34 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 14:05:28 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 11:03:06 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memcpy(void *dst, const void *src, size_t n)
+#include "libft.h"
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-    unsigned int  i;
-    char    *d;
-    char    *s;
+	unsigned int	i;
+	char			*d;
+	char			*s;
 
-    i = 0;
-    d = (char *)dst;
-    s = (char *)src;
-    
-    while (i < n)
-    {
-            d[i] = s[i];
-            i++;
-    }
-    return (dst);
+	i = 0;
+	d = (char *)dst;
+	s = (char *)src;
+	while (i < n)
+	{
+		d[i] = s[i];
+		i++;
+	}
+	return (dst);
 }
-
+/*
 int main(void)
 {
     char src[] = "Hello, World!";
@@ -32,3 +41,4 @@ int main(void)
 
     return (0);
 }
+*/

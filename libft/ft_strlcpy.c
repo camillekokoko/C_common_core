@@ -1,6 +1,16 @@
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 10:59:32 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 14:35:14 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
@@ -8,8 +18,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	int	count;
 
 	i = 0;
-    count = strlen(src);
-	//count = ft_strlen(src);
+	count = ft_strlen(src);
 	if (dstsize == 0)
 		return (count);
 	while (dst && src && i < (int)(dstsize - 1)
@@ -21,7 +30,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	dst[i] = '\0';
 	return (count);
 }
-
+/*
 int main()
 {
     char src[] = "Hello, World!";
@@ -38,4 +47,4 @@ int main()
     printf("Length of copied string: %zu\n", result);
 
     return (0);
-}
+}*/

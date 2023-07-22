@@ -1,31 +1,45 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 14:22:56 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 13:27:05 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void *ft_memmove(void *dst, const void *src, size_t len)
+#include "libft.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	char	*s;
-	char	*d;
-	size_t	i;
+	size_t			i;
+	unsigned char	*char_dst;
+	unsigned char	*char_src;
 
-	s = (char *)src;
-	d = (char *)dst;
+	char_dst = ((unsigned char *)dst);
+	char_src = ((unsigned char *)src);
 	i = 0;
-	if (d > s)
-		while (len > 0)
-        {
-			d[len] = s[len];
-            len --;
-        }
-	else
+	if (dst > src)
+	{
 		while (i < len)
 		{
-			d[i] = s[i];
+			char_dst[len - 1 - i] = char_src[len - 1 - i];
 			i++;
 		}
+	}
+	else
+	{
+		while (i < len)
+		{
+			char_dst[i] = char_src[i];
+			i++;
+		}
+	}
 	return (dst);
 }
-
+/*
 int main(void)
 {
 	char src[] = "Hello, World!";
@@ -36,3 +50,4 @@ int main(void)
 	printf("After memmove: %s\n", dst);
 	return (0);
 }
+*/

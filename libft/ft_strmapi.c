@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 10:53:38 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 11:04:17 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
@@ -21,12 +33,11 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[t] = '\0';
 	return (str);
 }
-
+/*
 char increment_char(unsigned int index, char c)
 {
     return (c + 1);
 }
-
 int main()
 {
     char input_str[] = "Hello, World!";
@@ -45,4 +56,4 @@ int main()
 
     return (0);
 }
-
+*/

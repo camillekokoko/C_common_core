@@ -1,5 +1,16 @@
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 10:49:34 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 11:03:57 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
@@ -14,8 +25,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		i++;
 	}
 }
-
-void print_char_index(unsigned int index, char *c)
+/*
+void	print_char_index(unsigned int index, char *c)
 {
     printf("Character at index %u: %c\n", index, *c);
 }
@@ -27,3 +38,4 @@ int main()
 
     return (0);
 }
+*/

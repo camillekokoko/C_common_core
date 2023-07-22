@@ -1,34 +1,39 @@
-#include <stdio.h>
-#include <string.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 10:56:22 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 13:59:20 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    int		i;
-	int		j;
-	int		k;
-	char	*str;
+	size_t	i;
+	size_t	j;
 
-	str = (char *)haystack;
 	i = 0;
-	if (needle[i] == '\0')
-		return (str);
-	while (str[i] && i < (int)len)
+	if (*needle == '\0' || needle == NULL)
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && i < len)
 	{
-		k = i;
 		j = 0;
-		while (str[k] == needle[j] && k < (int)len)
+		while (needle[j] == haystack[i + j] && i + j < len)
 		{
 			if (needle[j + 1] == '\0')
-				return (&str[i]);
-			k++;
+				return ((char *)haystack + i);
 			j++;
 		}
 		i++;
 	}
-	return (0);
-
+	return (NULL);
 }
-
+/*
 int main(void)
 {
     char haystack[] = "This is the way.";
@@ -40,4 +45,4 @@ int main(void)
     printf("%s\n", the);
 
     return (0);
-}
+}*/

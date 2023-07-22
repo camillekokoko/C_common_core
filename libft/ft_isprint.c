@@ -1,15 +1,26 @@
-//#include "libft.h"
-#include <unistd.h>
-#include <stdio.h>
-int ft_isprint(int c)
-{
-    if (c >= 32 && c <= 126)
-    {
-        return (1);
-    }
-    return (0);
-}
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 14:04:23 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 11:02:46 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
+#include "libft.h"
+
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+	{
+		return (1);
+	}
+	return (0);
+}
+/*
 int main()
 {
     int c;
@@ -19,3 +30,4 @@ int main()
     printf("%d\n", ft_isprint(c));
     return (0);
 }
+*/

@@ -1,16 +1,28 @@
-//#include "libft.h"//
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 13:03:42 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 13:24:55 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isalnum(int c)
+#include "libft.h"
+
+int	ft_isalnum(int c)
 {
-    if ((c >= '0' && c <= '9') ||  ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z')))
-    {
-        return (1);
-    }
-    return (0);
+	if (c >= 'A' && c <= 'Z')
+		return (1);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
-
+/*
 int main()
 {
     char c;
@@ -24,3 +36,4 @@ int main()
     printf("%d\n", ft_isalnum(c));
     return (0);
 }
+*/

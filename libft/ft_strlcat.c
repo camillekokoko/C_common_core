@@ -1,32 +1,40 @@
-#include <unistd.h>
-#include <string.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 10:59:27 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 13:32:30 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
-	size_t	dst_len;
-	size_t	src_len;
+	size_t	j;
 
 	i = 0;
-    //dst_len = ft_strlen(dst);
-    //dst_len = ft_strlen(dst);
-
-	dst_len = strlen(dst);
-	src_len = strlen(src);
-	if (!size)
-		return (src_len);
-	while (src[i] && dst_len + i < size - 1)
-	{
-		dst[dst_len + i] = src[i];
+	j = 0;
+	while (dst[i])
 		i++;
+	if (size < i)
+	{
+		while (src[j])
+			j++;
+		return (size + j);
 	}
-	dst[dst_len + i] = '\0';
-	if (dst_len > size)
-		return (src_len + size);
-	return (src_len + dst_len);
+	while (size > 0 && i < size - 1 && src[j])
+		dst[i++] = src[j++];
+	dst[i] = '\0';
+	while (src[j++])
+		i++;
+	return (i);
 }
-
+/*
 int main()
 {
     char src[] = "Hello, World!";
@@ -45,4 +53,4 @@ int main()
     printf("Length of copied string: %zu\n", result);
 
     return (0);
-}
+}*/

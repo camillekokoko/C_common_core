@@ -1,39 +1,64 @@
-static size_t	get_digits(int n)
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/22 09:53:35 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 13:11:51 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+static int	num_of_char(int n)
 {
-	size_t	i;
+	int				i;
+	unsigned int	num;
 
 	i = 1;
-	while (n /= 10)
+	num = n;
+	if (n < 0)
+	{
+		i = 2;
+		num = -n;
+	}
+	while (num > 9)
+	{
+		num = num / 10;
 		i++;
+	}
 	return (i);
 }
 
-char *ft_itoa(int n)
+char	*ft_itoa(int n)
 {
-	char	*str_num;
-	size_t	digits;
-	int	num;
+	int				i;
+	unsigned int	num;
+	char			*buffer;
 
+	buffer = (char *)malloc(num_of_char(n) + 1);
+	if (buffer == NULL)
+		return (0);
+	i = num_of_char(n);
 	num = n;
-	digits = get_digits(n);
 	if (n < 0)
 	{
-		num *= -1;
-		digits++;
+		num = -n;
+		buffer[0] = '-';
 	}
-	if (!(str_num = (char *)malloc(sizeof(char) * (digits + 1))))
-		return (NULL);
-	*(str_num + digits) = 0;
-	while (digits--)
+	buffer[i] = 0;
+	buffer[i - 1] = '0';
+	while (num > 0)
 	{
-		*(str_num + digits) = num % 10 + '0';
-		num = num / 10;
+		i--;
+		buffer[i] = num % 10 + 48;
+		num /= 10;
 	}
-	if (n < 0)
-		*(str_num + 0) = '-';
-	return (str_num);
+	return (buffer);
 }
-
+/*
 int main() {
     int number = -12345;
     char* str_number = ft_itoa(number);
@@ -50,3 +75,4 @@ int main() {
 
     return 0;
 }
+*/

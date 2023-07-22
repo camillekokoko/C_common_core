@@ -1,16 +1,26 @@
-//#include "libft.h"//
-#include <unistd.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/07/15 14:19:51 by szko              #+#    #+#             */
+/*   Updated: 2023/07/22 11:02:35 by szko             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int ft_isascii(int c)
+#include "libft.h"
+
+int	ft_isascii(int c)
 {
-    if (c >= 0 && c <= 127)
-    {
-        return (1);
-    }
-    return (0);
+	if (c >= 0 && c <= 127)
+	{
+		return (1);
+	}
+	return (0);
 }
-
+/*
 int main()
 {
     int c;
@@ -20,3 +30,4 @@ int main()
     printf("%d\n", ft_isascii(c));
     return (0);
 }
+*/

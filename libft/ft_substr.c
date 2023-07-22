@@ -3,17 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: szko <szko@student.42adel.org.au>          +#+  +:+       +#+        */
+/*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:24:26 by szko              #+#    #+#             */
-/*   Updated: 2023/07/15 15:55:08 by szko             ###   ########.fr       */
+/*   Updated: 2023/07/22 11:10:41 by szko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
+#include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -22,10 +19,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	substr_len;
 	char	*substr;
 
-	s_len = strlen(s);
+	s_len = ft_strlen(s);
 	if (start >= s_len)
 	{
-	//size_t s_len = ft_strlen(s);
 		empty_ptr = (char *)malloc(1);
 		empty_ptr[0] = '\0';
 		return (empty_ptr);
@@ -35,8 +31,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	else
 		substr_len = len;
 	substr = (char *) malloc((substr_len + 1) * sizeof(char));
-	strlcpy(substr, s + start, substr_len + 1);
-	//ft_strlcpy(substr, s + start, substr_len + 1);
+	ft_strlcpy(substr, s + start, substr_len + 1);
 	substr[substr_len] = '\0';
 	return (substr);
 }
