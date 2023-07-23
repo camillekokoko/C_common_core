@@ -6,7 +6,7 @@
 /*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 14:05:28 by szko              #+#    #+#             */
-/*   Updated: 2023/07/22 11:03:06 by szko             ###   ########.fr       */
+/*   Updated: 2023/07/23 11:28:15 by szko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,15 @@
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	unsigned int	i;
-	char			*d;
-	char			*s;
+	size_t			i;
+	unsigned char	*d;
+	unsigned char	*s;
 
 	i = 0;
-	d = (char *)dst;
-	s = (char *)src;
+	d = (unsigned char *)dst;
+	s = (unsigned char *)src;
+	if (!n || dst == src)
+		return (dst);
 	while (i < n)
 	{
 		d[i] = s[i];

@@ -5,53 +5,52 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/17 15:44:59 by szko              #+#    #+#             */
-/*   Updated: 2023/07/22 15:46:55 by szko             ###   ########.fr       */
+/*   Created: 2023/07/23 12:24:56 by szko              #+#    #+#             */
+/*   Updated: 2023/07/23 12:24:56 by szko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_isinset(char c, char const *set)
+static int	is_in(char c, char const *set)
 {
-	while (*set)
+	int	i;
+
+	i = 0;
+	while (set[i])
 	{
-		if (c == *set)
+		if (c == set[i])
 			return (1);
-		set++;
+		i++;
 	}
 	return (0);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	char	*str;
-	char	*start;
-	char	*end;
+	int		i;
+	int		j;
+	int		k;
+	char	*output;
 
-	if (!s1 || !set)
+	i = 0;
+	while (s1[i] && is_in(s1[i], set))
+		i++;
+	j = 0;
+	while (s1[j])
+		j++;
+	j = j - 1;
+	while ((j >= 0) && s1[j] && is_in(s1[j], set))
+		j--;
+	if (i > j)
+		output = (char *)malloc(sizeof(char));
+	else
+		output = (char *)malloc(sizeof(char) * (j - i + 2));
+	if (!output)
 		return (NULL);
-	start = (char *) s1;
-	end = start + ft_strlen(s1);
-	while (*start && ft_isinset(*start, set))
-		++start;
-	while (start < end && ft_isinset(*(end - 1), set))
-		--end;
-	str = ft_substr(start, 0, end - start);
-	return (str);
+	k = 0;
+	while (s1[i] && (i <= j))
+		output[k++] = s1[i++];
+	output[k] = '\0';
+	return (output);
 }
-
-/*
-int	main()
-{
-	char *str = " Linux hint ";
-	char *set = "nh";
-	char *trimmed = ft_strtrim(str, set);
-	printf("%s\n", trimmed);
-    free(trimmed);tstr == NULL)
-		return (NULL);
-	ft_strlcpy(outstr, outstr_start, outstr_size);
-	return (out
-	return (0);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 15:24:26 by szko              #+#    #+#             */
-/*   Updated: 2023/07/22 11:10:41 by szko             ###   ########.fr       */
+/*   Updated: 2023/07/23 11:40:55 by szko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	else
 		substr_len = len;
 	substr = (char *) malloc((substr_len + 1) * sizeof(char));
+	if (!substr)
+		return (NULL);
 	ft_strlcpy(substr, s + start, substr_len + 1);
 	substr[substr_len] = '\0';
 	return (substr);

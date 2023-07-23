@@ -6,7 +6,7 @@
 /*   By: szko <szko@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/15 13:24:26 by szko              #+#    #+#             */
-/*   Updated: 2023/07/22 11:03:15 by szko             ###   ########.fr       */
+/*   Updated: 2023/07/23 11:31:41 by szko             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,13 @@
 
 void	*ft_memset(void *b, int c, size_t len)
 {
-	size_t			i;
-	unsigned char	*ptr;
+	char	ch;
+	char	*str;
 
-	i = 0;
-	ptr = (unsigned char *)b;
-	if (!b)
-		return (NULL);
-	while (i < len)
-	{
-		*ptr = (unsigned char) c;
-		i++;
-		ptr++;
-	}
+	ch = (char)c;
+	str = (char *)b;
+	while (len--)
+		*str++ = ch;
 	return (b);
 }
 /*
